@@ -45,7 +45,7 @@ class ConfigService {
       migrations: [path.join(__dirname, '../migration/*{.ts,.js')],
 
       migrationsTableName: 'migration',
-
+      autoLoadEntities: true,
 
       cli: {
         migrationsDir: 'src/migration',

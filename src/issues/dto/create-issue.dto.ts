@@ -1,1 +1,3 @@
-export class CreateIssueDto {}
+export class CreateIssueDto {
+  readonly name: string;
+}
