@@ -1,27 +1,27 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from "@nestjs/common";
 import { CreateIssueDto } from './dto/create-issue.dto';
 import { UpdateIssueDto } from './dto/update-issue.dto';
+import { InjectRepository } from "@nestjs/typeorm";
+import { Issue } from "./entities/issue.entity";
+import { Repository } from "typeorm";
 
 @Injectable()
 export class IssuesService {
-  create(createIssueDto: CreateIssueDto) {
 
+  constructor(
+    @InjectRepository(Issue)
+    private issueRepository: Repository<Issue>
+  ) {
+  }
+
+  create(createIssueDto: CreateIssueDto) {
+    this.issueRepository.create(createIssueDto)
     return 'This action adds a new issue';
   }
 
-  findAll() {
-    return `This action returns all issues`;
+  findAll(): Promise<Issue[]>{
+    return this.issueRepository.find()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} issue`;
-  }
 
-  update(id: number, updateIssueDto: UpdateIssueDto) {
-    return `This action updates a #${id} issue`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} issue`;
-  }
 }
