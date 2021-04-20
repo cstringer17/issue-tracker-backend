@@ -40,8 +40,6 @@ export class IssuesService {
 
   async updateIssue(id, updateIssueDto: UpdateIssueDto) {
     let issue: Issue = await this.issueRepository.findOne(id);
-    console.log("dto:  " + updateIssueDto)
-    console.log("stored:  " + issue.name)
     issue.name = updateIssueDto.name;
     return this.issueRepository.save(issue);
   }

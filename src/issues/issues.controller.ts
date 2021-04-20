@@ -6,7 +6,7 @@ import { JwtAuthGuard } from "../auth/jwt-auth.guard";
 import { Issue } from "./entities/issue.entity";
 
 @Controller('issues')
-//@UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard)
 
 export class IssuesController {
   constructor(
