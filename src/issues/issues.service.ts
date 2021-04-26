@@ -23,13 +23,13 @@ export class IssuesService {
     }
   }
 
-  findAll(): Promise<Issue[]>{
-    return this.issueRepository.find()
+  async findAll(): Promise<Issue[]>{
+    return await this.issueRepository.find()
   }
 
 
-  findIssueByID(id: number): Promise<Issue>{
-    return this.issueRepository.findOne(id)
+  async findIssueByID(id: number): Promise<Issue>{
+    return await this.issueRepository.findOne(id)
   }
 
   async deleteIssue(id: number) {
