@@ -6,7 +6,7 @@ import { JwtAuthGuard } from "../auth/jwt-auth.guard";
 import { Issue } from "./entities/issue.entity";
 
 @Controller('issues')
-@UseGuards(JwtAuthGuard)
+//@UseGuards(JwtAuthGuard)
 
 export class IssuesController {
   constructor(
@@ -15,7 +15,7 @@ export class IssuesController {
 
   @Post()
   create(@Body() issueDTO: CreateIssueDto,) {
-     this.issuesService.create(issueDTO);
+     this.issuesService.create(issueDTO).then(r =>{ return r});
   }
 
   @Get()
