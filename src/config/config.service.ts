@@ -46,7 +46,7 @@ class ConfigService {
 
       migrationsTableName: 'migration',
       autoLoadEntities: true,
-
+      logging: true,
       cli: {
         migrationsDir: 'src/migration',
       },
